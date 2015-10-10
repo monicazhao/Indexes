@@ -17,5 +17,9 @@ class DistributionMap:
         mpl.rcParams['font.sans-serif'] = [u'SimHei']
 
     def drawBoxPlot(self,x):
-        #输入一组数据，返回对应的盒图
-        
+        #输入一组数据，返回对应的直方图与盒图
+        data = np.array(x)
+        fig,(ax1,ax2) = plt.subplots(1,2,figsize=(8,4))
+        ax1.hist(data)
+        ax2.boxplot(data)
+        plt.show()

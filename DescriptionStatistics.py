@@ -57,8 +57,8 @@ class DescriptionStatistics:
         x.sort()
         n = len(x)
         if n % 2 != 0:
-            q1 = x[(n+1) * (1/4) - 1]
-            q3 = x[(n+1) * (3/4) - 1]
+            q1 = x[int((n+1) * 0.25) - 1]
+            q3 = x[int((n+1) * 0.75) - 1]
         else:
             q1 = float(x[n/4-1] + x[n/4])/2
             q3 = float(x[3*n/4+1] + x[3*n/4])/2
@@ -82,3 +82,7 @@ class DescriptionStatistics:
         variance = self.variance(x)
         return math.sqrt(variance)
 
+if __name__ == "__main__":
+    x = [6, 7, 15, 36, 39, 40, 41, 42, 43, 47]
+    descriptionStatistics = DescriptionStatistics()
+    print descriptionStatistics.quartile(x)
